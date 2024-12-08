@@ -1,0 +1,135 @@
+/* Animations for card dealing based on location */
+/* TO DO: Add webkit keyframes also */
+
+@keyframes deal-player {
+	0% {
+		transform: translate(-90px, -150px);
+	}
+	50% {
+		transform: translate(-50px, -50px);
+	}
+	100% {
+		transform: translate(0, 0);
+  	}
+}
+
+@keyframes player-display {
+	0% {
+		transform: translate(0px, 20px);
+	}
+	50% {
+		transform: translate(0px, 5px);
+	}
+	100% {
+		transform: translate(0, 0);
+  	}
+}
+
+@keyframes deal-player-split {
+	0% {
+		transform: translate(-90px, -450px);
+	}
+	50% {
+		transform: translate(-50px, -150px);
+	}
+	100% {
+		transform: translate(0, 0);
+  	}
+}
+
+@keyframes deal-dealer {
+	0% {
+		transform: translate(-100px, 0px);
+	}
+	50% {
+		transform: translate(-50px, 0px);
+	}
+	100% {
+		transform: translate(0, 0);
+  	}
+}
+
+@keyframes dealer-cardflip {
+	0% {
+		transform: rotateY(25deg);
+	}
+	50% {
+		transform: rotateY(100deg);
+	}
+	100% {
+		transform: none;
+  	}
+}
+
+
+/* Card animations called using keyframes */
+/* Animation angle different for each */
+.player-hand .animate{
+	animation: player-display .5s linear;
+}
+
+#dealer .card {
+	animation: deal-dealer .25s linear;
+}
+
+#user-hand .card {
+	animation: deal-player .5s linear;
+}
+
+#user-split-hand .card {
+	animation: deal-player-split .5s linear;
+}
+
+#dealer .card.flipped {
+	animation: dealer-cardflip .25s linear;
+}
+
+#player-0-hand .player-card
+{
+	animation:deal-player .5s linear;
+}
+.lds-ring {
+	/* change color here */
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
+  .lds-ring,
+  .lds-ring div {
+	box-sizing: border-box;
+  }
+  .lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 40px;
+  }
+  .lds-ring div {
+
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border: 6px solid currentColor;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: currentColor transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
